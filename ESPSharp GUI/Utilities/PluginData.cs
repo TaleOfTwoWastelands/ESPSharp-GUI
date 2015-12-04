@@ -35,7 +35,7 @@ namespace ESPSharp_GUI.Utilities
 				else
 				{
 					var plugin = new ElderScrollsPlugin(Path.GetFileName(file));
-					plugin.ReadBinary(file);
+					plugin.Read(file);
 					
 					Plugins.Add(plugin);
 					progress.Report("Loaded plugin data for: " + Path.GetFileName(file));

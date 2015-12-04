@@ -14,6 +14,7 @@ namespace ESPSharp_GUI.DockableForms
 		public BookmarkListWindow()
 		{
 			InitializeComponent();
+			base.InitializeComponent();
 
 			TlvControl = treeListView1;
 
@@ -25,13 +26,27 @@ namespace ESPSharp_GUI.DockableForms
 
 		private void btbFilter_TextChanged(object sender, EventArgs e)
 		{
-
 			FilterControl(((TextBox)sender).Text);
 		}
 
 		private void btnClear_Click(object sender, EventArgs e)
 		{
 			treeListView1.ClearObjects();
+		}
+
+		private void tlvPluginList_CellClick(object sender, CellClickEventArgs e)
+		{
+			//RecordViewWindow.AddRecordData(e.Model);
+		}
+
+		private void tlvPluginList_Expanding(object sender, TreeBranchExpandingEventArgs e)
+		{
+			Expanding(e.Model);
+		}
+
+		private void tlvPluginsList_Collapsing(object sender, TreeBranchCollapsingEventArgs e)
+		{
+			Collapsing(e.Model);
 		}
 	}
 }

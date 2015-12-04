@@ -92,6 +92,7 @@
 			this.tlvPluginList.View = System.Windows.Forms.View.Details;
 			this.tlvPluginList.VirtualMode = true;
 			this.tlvPluginList.Expanding += new System.EventHandler<BrightIdeasSoftware.TreeBranchExpandingEventArgs>(this.tlvPluginList_Expanding);
+			this.tlvPluginList.Collapsing += new System.EventHandler<BrightIdeasSoftware.TreeBranchCollapsingEventArgs>(this.tlvPluginsList_Collapsing);
 			this.tlvPluginList.CellClick += new System.EventHandler<BrightIdeasSoftware.CellClickEventArgs>(this.tlvPluginList_CellClick);
 			// 
 			// olvcFormID

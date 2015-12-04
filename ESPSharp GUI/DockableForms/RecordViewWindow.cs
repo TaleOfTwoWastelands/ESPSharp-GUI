@@ -3,11 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
-using System.Windows.Forms;
 using System.Xml.Linq;
 using ESPSharp;
 using ESPSharp_GUI.Utilities;
-using Fasterflect;
 using WeifenLuo.WinFormsUI.Docking;
 
 namespace ESPSharp_GUI.DockableForms
@@ -87,7 +85,7 @@ namespace ESPSharp_GUI.DockableForms
 				sb.Append("<" + thisObject.GetType().Name + ">");
 				foreach (PropertyInfo propertyInfo in propertyInfos)
 				{
-					sb.AppendFormat("Name: {0} | Value: {1} <br>", propertyInfo.Name, propertyInfo.va);
+					//sb.AppendFormat("Name: {0} | Value: {1} <br>", propertyInfo.Name, propertyInfo.va);
 				}
 				sb.Append("<hr />");
 				result = sb.ToString();
