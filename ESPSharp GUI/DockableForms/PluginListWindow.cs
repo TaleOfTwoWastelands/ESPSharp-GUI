@@ -14,6 +14,8 @@ namespace ESPSharp_GUI.DockableForms
 		public PluginListWindow()
 		{
 			InitializeComponent();
+			base.InitializeComponent();
+
 
 			TlvControl = tlvPluginList;
 
@@ -38,6 +40,11 @@ namespace ESPSharp_GUI.DockableForms
 		private void tlvPluginList_Expanding(object sender, TreeBranchExpandingEventArgs e)
 		{
 			Expanding(e.Model);
+		}
+
+		private void tlvPluginsList_Collapsing(object sender, TreeBranchCollapsingEventArgs e)
+		{
+			Collapsing(e.Model);
 		}
 	}
 }

@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Linq;
 using System.Windows.Forms;
 using BrightIdeasSoftware;
 using ESPSharp;
-using ESPSharp_GUI.Utilities;
 using Fasterflect;
 using WeifenLuo.WinFormsUI.Docking;
 
@@ -13,6 +11,22 @@ namespace ESPSharp_GUI.Extensions
 	public class PluginList : DockContent
 	{
 		internal TreeListView TlvControl = new TreeListView();
+
+		internal void InitializeComponent()
+		{
+			this.SuspendLayout();
+			// 
+			// PluginList
+			// 
+			this.ClientSize = new System.Drawing.Size(284, 262);
+			this.CloseButton = false;
+			this.CloseButtonVisible = false;
+			this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.HideOnClose = true;
+			this.Name = "PluginList";
+			this.ResumeLayout(false);
+
+		}
 
 		internal void SetupTree()
 		{
@@ -121,6 +135,13 @@ namespace ESPSharp_GUI.Extensions
 					RecursiveExpand(TlvControl.GetChildren(e));
 		}
 
+		internal void Collapsing(object e)
+		{
+			if (ModifierKeys == Keys.Control)
+				if (TlvControl.IsExpanded(e))
+					RecursiveCollapse(TlvControl.GetChildren(e));
+		}
+
 		/// <summary>
 		/// Recursively expands a group in the treelistview
 		/// control until it cannot expand further
@@ -132,6 +153,15 @@ namespace ESPSharp_GUI.Extensions
 			{
 				RecursiveExpand(TlvControl.GetChildren(m));
 				TlvControl.Expand(m);
+			}
+		}
+
+		internal void RecursiveCollapse(IEnumerable ienum)
+		{
+			foreach (var m in from object m in ienum where TlvControl.CanExpand(m) select m)
+			{
+				RecursiveCollapse(TlvControl.GetChildren(m));
+				TlvControl.Collapse(m);
 			}
 		}
 	}

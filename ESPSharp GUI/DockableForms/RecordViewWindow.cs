@@ -3,11 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
-using System.Windows.Forms;
 using System.Xml.Linq;
 using ESPSharp;
 using ESPSharp_GUI.Utilities;
-using Fasterflect;
 using WeifenLuo.WinFormsUI.Docking;
 
 namespace ESPSharp_GUI.DockableForms

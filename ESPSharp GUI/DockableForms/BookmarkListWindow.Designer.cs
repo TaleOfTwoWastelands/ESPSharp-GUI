@@ -99,6 +99,9 @@
 			this.treeListView1.UseCompatibleStateImageBehavior = false;
 			this.treeListView1.View = System.Windows.Forms.View.Details;
 			this.treeListView1.VirtualMode = true;
+			this.treeListView1.Expanding += new System.EventHandler<BrightIdeasSoftware.TreeBranchExpandingEventArgs>(this.tlvPluginList_Expanding);
+			this.treeListView1.Collapsing += new System.EventHandler<BrightIdeasSoftware.TreeBranchCollapsingEventArgs>(this.tlvPluginsList_Collapsing);
+			this.treeListView1.CellClick += new System.EventHandler<BrightIdeasSoftware.CellClickEventArgs>(this.tlvPluginList_CellClick);
 			// 
 			// olvcFormID
 			// 
