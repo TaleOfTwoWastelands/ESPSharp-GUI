@@ -6,13 +6,25 @@ using ESPSharp;
 
 namespace ESPSharp_GUI.Utilities
 {
+	public enum EspDataType
+	{
+		Plugin,
+		Group,
+		RecordView,
+		Record,
+		None
+	}
+
 	static class PluginData
 	{
-		public static List<ElderScrollsPlugin> Plugins = new List<ElderScrollsPlugin>();
-		private static List<RecordView> listRecords = new List<RecordView>();
+		public static List<ElderScrollsPlugin> Plugins;
+
 
 		public static void OpenPlugins(string[] files, IProgress<string> progress)
 		{
+			Plugins = new List<ElderScrollsPlugin>();
+			ElderScrollsPlugin.Clear();
+
 			ElderScrollsPlugin.pluginLocations.Add(new KeyValuePair<string, bool>(Util.DataPath, false));
 			ElderScrollsPlugin.pluginLocations.Add(new KeyValuePair<string, bool>(Util.MOPath, true));
 
@@ -24,8 +36,7 @@ namespace ESPSharp_GUI.Utilities
 				{
 					var plugin = new ElderScrollsPlugin(Path.GetFileName(file));
 					plugin.ReadBinary(file);
-
-					//MergeDuplicateTopGroups(plugin, progress);
+					
 					Plugins.Add(plugin);
 					progress.Report("Loaded plugin data for: " + Path.GetFileName(file));
 				}
@@ -33,36 +44,22 @@ namespace ESPSharp_GUI.Utilities
 		}
 
 
-		private static void MergeDuplicateTopGroups(ElderScrollsPlugin plugin, IProgress<string> progress)
+		public static EspDataType ObjectType(object obj)
 		{
-			List<Group> groups = new List<Group>();
+			if (obj is ElderScrollsPlugin)
+				return EspDataType.Plugin;
+			if (obj is Group)
+				return EspDataType.Group;
+			if (obj is RecordView)
+				return EspDataType.RecordView;
+			if (obj is Record)
+				return EspDataType.Record;
+			return EspDataType.None;
+		}
 
-			for (int index = 0; index < plugin.TopGroups.Count; index++)
-			{
-				var topGroup = plugin.TopGroups[index];
-				
-
-				var dupGroups = plugin.TopGroups.FindAll(g => g.ToString().Equals(topGroup.ToString()));
-
-				foreach (var group in dupGroups)
-				{
-					foreach (var allRecordView in group.AllRecordViews)
-						if (!topGroup.AllRecordViews.Contains(allRecordView))
-							topGroup.AllRecordViews.Add(allRecordView);
-
-					foreach (var allSubgroup in group.AllSubgroups)
-						if (!topGroup.AllSubgroups.Contains(allSubgroup))
-							topGroup.AllSubgroups.Add(allSubgroup);
-
-					foreach (var childRecordView in group.ChildRecordViews)
-						if (!topGroup.ChildRecordViews.Contains(childRecordView))
-							topGroup.ChildRecordViews.Add(childRecordView);
-
-					foreach (var child in group.Children)
-						if (!topGroup.Children.Contains(child))
-							topGroup.Children.Add(child);
-				}
-			}
+		public static ElderScrollsPlugin GetRecordViewMasterFile(RecordView recordView)
+		{
+			return ElderScrollsPlugin.LoadedPlugins.FirstOrDefault(p => p.RecordViews.Contains(recordView));
 		}
 	}
 }

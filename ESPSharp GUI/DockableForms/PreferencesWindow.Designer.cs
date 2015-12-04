@@ -29,7 +29,7 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.PrefGbxPaths = new System.Windows.Forms.GroupBox();
 			this.PredDgvBtnRemove = new System.Windows.Forms.Button();
 			this.PrefDgvBtnAdd = new System.Windows.Forms.Button();
@@ -92,14 +92,14 @@
 			this.PrefDgvLocations.AllowUserToResizeRows = false;
 			this.PrefDgvLocations.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.PrefDgvLocations.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.PrefDgvLocations.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
 			this.PrefDgvLocations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.PrefDgvLocations.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnGameName,
@@ -144,11 +144,12 @@
 			this.PrefGbx2.Size = new System.Drawing.Size(202, 96);
 			this.PrefGbx2.TabIndex = 1;
 			this.PrefGbx2.TabStop = false;
-			this.PrefGbx2.Text = "groupBox2";
+			this.PrefGbx2.Text = "Visual Style";
 			// 
 			// panel1
 			// 
 			this.panel1.AutoScroll = true;
+			this.panel1.BackColor = System.Drawing.SystemColors.Control;
 			this.panel1.Controls.Add(this.PrefGbx2);
 			this.panel1.Controls.Add(this.PrefGbxPaths);
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;

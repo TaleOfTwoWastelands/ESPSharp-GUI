@@ -48,11 +48,6 @@ namespace ESPSharp_GUI
 			}
 		}
 
-		private string[] GetFilePaths()
-		{
-			return (from ListViewItem item in lvPluginList.Items where item.Checked select Path.Combine(Util.DataPath, item.Text)).ToArray();
-		}
-
 		/// <summary>
 		/// Our job is done, hide this window and start loading plugins.
 		/// </summary>
@@ -62,7 +57,8 @@ namespace ESPSharp_GUI
 		{
 			_instance.Hide();
 
-			var paths = GetFilePaths();
+			// Build paths using the local data directory and the known plugin names.
+			var paths = (from ListViewItem item in lvPluginList.Items where item.Checked select Path.Combine(Util.DataPath, item.Text)).ToArray();
 
 			var progress = new Progress<string>(update =>
 			{

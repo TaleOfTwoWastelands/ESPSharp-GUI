@@ -15,6 +15,7 @@ namespace ESPSharp_GUI.DockableForms
 		public PreferencesWindow()
 		{
 			InitializeComponent();
+
 		}
 
 		public void Apply()

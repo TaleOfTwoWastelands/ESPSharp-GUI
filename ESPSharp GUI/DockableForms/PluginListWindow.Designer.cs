@@ -80,11 +80,10 @@
 			this.tlvPluginList.Cursor = System.Windows.Forms.Cursors.Default;
 			this.tlvPluginList.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tlvPluginList.FullRowSelect = true;
-			this.tlvPluginList.HighlightBackgroundColor = System.Drawing.Color.Empty;
-			this.tlvPluginList.HighlightForegroundColor = System.Drawing.Color.Empty;
 			this.tlvPluginList.IsSimpleDragSource = true;
 			this.tlvPluginList.Location = new System.Drawing.Point(3, 29);
 			this.tlvPluginList.Name = "tlvPluginList";
+			this.tlvPluginList.OwnerDraw = true;
 			this.tlvPluginList.ShowFilterMenuOnRightClick = false;
 			this.tlvPluginList.ShowGroups = false;
 			this.tlvPluginList.Size = new System.Drawing.Size(496, 230);
@@ -92,10 +91,12 @@
 			this.tlvPluginList.UseCompatibleStateImageBehavior = false;
 			this.tlvPluginList.View = System.Windows.Forms.View.Details;
 			this.tlvPluginList.VirtualMode = true;
+			this.tlvPluginList.Expanding += new System.EventHandler<BrightIdeasSoftware.TreeBranchExpandingEventArgs>(this.tlvPluginList_Expanding);
 			this.tlvPluginList.CellClick += new System.EventHandler<BrightIdeasSoftware.CellClickEventArgs>(this.tlvPluginList_CellClick);
 			// 
 			// olvcFormID
 			// 
+			this.olvcFormID.CellPadding = null;
 			this.olvcFormID.Groupable = false;
 			this.olvcFormID.Hideable = false;
 			this.olvcFormID.Text = "FormID";
@@ -103,6 +104,7 @@
 			// 
 			// olvcEditorID
 			// 
+			this.olvcEditorID.CellPadding = null;
 			this.olvcEditorID.Groupable = false;
 			this.olvcEditorID.Hideable = false;
 			this.olvcEditorID.Text = "EditorID";
@@ -110,6 +112,7 @@
 			// 
 			// olvcName
 			// 
+			this.olvcName.CellPadding = null;
 			this.olvcName.FillsFreeSpace = true;
 			this.olvcName.Groupable = false;
 			this.olvcName.Hideable = false;
@@ -118,12 +121,16 @@
 			// 
 			// btbFilter
 			// 
+			this.btbFilter.ButtonWidth = 25;
+			this.btbFilter.ContentsImage = global::ESPSharp_GUI.Properties.Resources.cross_button;
+			this.btbFilter.DefaultImage = global::ESPSharp_GUI.Properties.Resources.magnifier_left;
 			this.btbFilter.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btbFilter.EmptyImage = global::ESPSharp_GUI.Properties.Resources.magnifier_left;
 			this.btbFilter.Location = new System.Drawing.Point(50, 3);
 			this.btbFilter.Name = "btbFilter";
 			this.btbFilter.Size = new System.Drawing.Size(449, 20);
 			this.btbFilter.TabIndex = 4;
-			this.btbFilter.TextChanged += new System.EventHandler(this.tbFilter_TextChanged);
+			this.btbFilter.TextChanged += new System.EventHandler(this.btbFilter_TextChanged);
 			// 
 			// PluginListWindow
 			// 

@@ -39,6 +39,7 @@
 			this.tsmiActivePanels = new System.Windows.Forms.ToolStripMenuItem();
 			this.tsmiPanels = new System.Windows.Forms.ToolStripMenuItem();
 			this.tsmiHelp = new System.Windows.Forms.ToolStripMenuItem();
+			this.tsmiReloadPlugins = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -68,6 +69,7 @@
 			// tsmiFile
 			// 
 			this.tsmiFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiReloadPlugins,
             this.tsmiSelectGame,
             this.tsmiPreferences});
 			this.tsmiFile.Name = "tsmiFile";
@@ -81,7 +83,7 @@
             this.falloutNewVegasToolStripMenuItem,
             this.fallout4ToolStripMenuItem});
 			this.tsmiSelectGame.Name = "tsmiSelectGame";
-			this.tsmiSelectGame.Size = new System.Drawing.Size(139, 22);
+			this.tsmiSelectGame.Size = new System.Drawing.Size(179, 22);
 			this.tsmiSelectGame.Text = "Select Game";
 			// 
 			// falloutNewVegasToolStripMenuItem
@@ -101,7 +103,7 @@
 			// tsmiPreferences
 			// 
 			this.tsmiPreferences.Name = "tsmiPreferences";
-			this.tsmiPreferences.Size = new System.Drawing.Size(139, 22);
+			this.tsmiPreferences.Size = new System.Drawing.Size(179, 22);
 			this.tsmiPreferences.Text = "PreferencesWindow";
 			this.tsmiPreferences.Click += new System.EventHandler(this.tsmiPreferences_Click);
 			// 
@@ -134,6 +136,13 @@
 			this.tsmiHelp.Text = "Help";
 			this.tsmiHelp.MouseHover += new System.EventHandler(this.tsmi_Hover);
 			// 
+			// tsmiReloadPlugins
+			// 
+			this.tsmiReloadPlugins.Name = "tsmiReloadPlugins";
+			this.tsmiReloadPlugins.Size = new System.Drawing.Size(179, 22);
+			this.tsmiReloadPlugins.Text = "Reload Plugins";
+			this.tsmiReloadPlugins.Click += new System.EventHandler(this.tsmiReloadPlugins_Click);
+			// 
 			// MainWindow
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -164,6 +173,7 @@
 		private System.Windows.Forms.ToolStripMenuItem falloutNewVegasToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem fallout4ToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem tsmiPanels;
+		private System.Windows.Forms.ToolStripMenuItem tsmiReloadPlugins;
 	}
 }
 

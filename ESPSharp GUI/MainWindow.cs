@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 using ESPSharp_GUI.DockableForms;
 using WeifenLuo.WinFormsUI.Docking;
@@ -22,9 +23,9 @@ namespace ESPSharp_GUI
 		{
 			InitializeComponent();
 			Instance = this;
-			
+
 			dpMainPanel.Theme = new VS2003Theme();
-			
+
 			PluginListWindow.Instance.Show(dpMainPanel, DockState.DockLeft);
 			BookmarkListWindow.Instance.Show(dpMainPanel, DockState.DockLeftAutoHide);
 			MessagesWindow.Instance.Show(dpMainPanel, DockState.DockBottom);
@@ -78,5 +79,16 @@ namespace ESPSharp_GUI
 			}
 		}
 
+		private void dpMainPanel_ActiveContentChanged(object sender, EventArgs e)
+		{
+			var form = (Form) sender;
+
+			
+		}
+
+		private void tsmiReloadPlugins_Click(object sender, EventArgs e)
+		{
+			LoadListWindow.Instance.Activate();
+		}
 	}
 }

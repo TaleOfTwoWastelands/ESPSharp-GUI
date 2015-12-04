@@ -33,8 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ESPSharp">
-      <HintPath>..\packages\ESPSharp.dll</HintPath>
+    <Reference Include="Fasterflect, Version=2.1.3.0, Culture=neutral, PublicKeyToken=38d18473284c1ca7, processorArchitecture=MSIL">
+      <HintPath>..\packages\fasterflect.2.1.3\lib\net40\Fasterflect.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="ListViewPrinter, Version=2.5.0.21564, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ObjectListView.2.7.1\lib\ListViewPrinter.dll</HintPath>
@@ -111,7 +112,9 @@
     <Compile Include="DockableForms\RecordViewWindow.Designer.cs">
       <DependentUpon>RecordViewWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Settings.cs" />
+    <Compile Include="Extensions\PluginList.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Instance.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
@@ -127,10 +130,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Settings1.cs" />
     <Compile Include="Utilities\PluginData.cs" />
-    <Compile Include="Utilities\Settings.cs" />
     <Compile Include="Utilities\Util.cs" />
+    <EmbeddedResource Include="Controls\ButtonTextBox.resx">
+      <DependentUpon>ButtonTextBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockableForms\LoadListWindow.resx">
       <DependentUpon>LoadListWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -160,6 +164,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -175,7 +180,24 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\ESPSharp\ESPSharp\ESPSharp.csproj">
+      <Project>{eec78da7-dc30-49f2-936c-cdd6c4bef45b}</Project>
+      <Name>ESPSharp</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\star.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\edit-list.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cross-button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magnifier-left.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
