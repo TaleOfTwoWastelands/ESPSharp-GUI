@@ -87,7 +87,7 @@ namespace ESPSharp_GUI.DockableForms
 				sb.Append("<" + thisObject.GetType().Name + ">");
 				foreach (PropertyInfo propertyInfo in propertyInfos)
 				{
-					sb.AppendFormat("Name: {0} | Value: {1} <br>", propertyInfo.Name, propertyInfo.va);
+					//sb.AppendFormat("Name: {0} | Value: {1} <br>", propertyInfo.Name, propertyInfo.va);
 				}
 				sb.Append("<hr />");
 				result = sb.ToString();

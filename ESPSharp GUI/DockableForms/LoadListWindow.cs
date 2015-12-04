@@ -26,26 +26,10 @@ namespace ESPSharp_GUI
 		/// </summary>
 		private void ReadPluginFiles()
 		{
-			using (var reader = new StreamReader(Util.AllPluginsPath))
-			{
-				while (reader.Peek() >= 0)
-				{
-					var pluginName = reader.ReadLine();
-					if (pluginName == null) continue;
-					if (pluginName.EndsWith(".esp") || pluginName.EndsWith(".esm"))
-						lvPluginList.Items.Add(pluginName);
-				}
-			}
-			using (var reader = new StreamReader(Util.LoadedPluginsPath))
-			{
-				while (reader.Peek() >= 0)
-				{
-					var pluginName = reader.ReadLine();
-					if (pluginName == null) continue;
-					if (pluginName.EndsWith(".esp") || pluginName.EndsWith(".esm"))
-						lvPluginList.FindItemWithText(pluginName).Checked = true;
-				}
-			}
+            foreach (var plugin in Settings.AllPlugins)
+                lvPluginList.Items.Add(Path.GetFileName(plugin));
+            foreach (var plugin in Settings.ActivePlugins)
+                lvPluginList.FindItemWithText(plugin).Checked = true;
 		}
 
 		/// <summary>
@@ -57,8 +41,11 @@ namespace ESPSharp_GUI
 		{
 			_instance.Hide();
 
-			// Build paths using the local data directory and the known plugin names.
-			var paths = (from ListViewItem item in lvPluginList.Items where item.Checked select Path.Combine(Util.DataPath, item.Text)).ToArray();
+            // Build paths using the local data directory and the known plugin names.
+            var paths = (from ListViewItem item 
+                         in lvPluginList.Items
+                         where item.Checked
+                         select Path.Combine(Settings.DataPath, item.Text)).ToArray();
 
 			var progress = new Progress<string>(update =>
 			{

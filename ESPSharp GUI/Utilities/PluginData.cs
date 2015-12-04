@@ -25,8 +25,7 @@ namespace ESPSharp_GUI.Utilities
 			Plugins = new List<ElderScrollsPlugin>();
 			ElderScrollsPlugin.Clear();
 
-			ElderScrollsPlugin.pluginLocations.Add(new KeyValuePair<string, bool>(Util.DataPath, false));
-			ElderScrollsPlugin.pluginLocations.Add(new KeyValuePair<string, bool>(Util.MOPath, true));
+			ElderScrollsPlugin.pluginLocations.Add(new KeyValuePair<string, bool>(Settings.DataPath, false));
 
 			foreach (var file in files)
 			{
