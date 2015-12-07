@@ -32,6 +32,7 @@
 			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.treeListView1 = new BrightIdeasSoftware.TreeListView();
 			this.olvColumn1 = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+			this.olvColumn2 = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			((System.ComponentModel.ISupportInitialize)(this.treeListView1)).BeginInit();
 			this.tableLayoutPanel1.SuspendLayout();
@@ -46,30 +47,49 @@
 			this.textBox1.Name = "textBox1";
 			this.textBox1.ReadOnly = true;
 			this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.textBox1.Size = new System.Drawing.Size(209, 256);
+			this.textBox1.Size = new System.Drawing.Size(360, 256);
 			this.textBox1.TabIndex = 0;
 			// 
 			// treeListView1
 			// 
 			this.treeListView1.AllColumns.Add(this.olvColumn1);
+			this.treeListView1.AllColumns.Add(this.olvColumn2);
+			this.treeListView1.CellEditUseWholeCell = false;
 			this.treeListView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.olvColumn1});
+            this.olvColumn1,
+            this.olvColumn2});
 			this.treeListView1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.treeListView1.Location = new System.Drawing.Point(218, 3);
+			this.treeListView1.HighlightBackgroundColor = System.Drawing.Color.Empty;
+			this.treeListView1.HighlightForegroundColor = System.Drawing.Color.Empty;
+			this.treeListView1.IsSimpleDragSource = true;
+			this.treeListView1.IsSimpleDropSink = true;
+			this.treeListView1.Location = new System.Drawing.Point(369, 3);
 			this.treeListView1.Name = "treeListView1";
-			this.treeListView1.OwnerDraw = true;
+			this.treeListView1.ShowFilterMenuOnRightClick = false;
 			this.treeListView1.ShowGroups = false;
-			this.treeListView1.Size = new System.Drawing.Size(210, 256);
+			this.treeListView1.Size = new System.Drawing.Size(361, 256);
 			this.treeListView1.TabIndex = 1;
 			this.treeListView1.UseCompatibleStateImageBehavior = false;
+			this.treeListView1.UseTranslucentSelection = true;
 			this.treeListView1.View = System.Windows.Forms.View.Details;
 			this.treeListView1.VirtualMode = true;
+			this.treeListView1.Expanding += new System.EventHandler<BrightIdeasSoftware.TreeBranchExpandingEventArgs>(this.treeListView1_Expanding);
 			// 
 			// olvColumn1
 			// 
 			this.olvColumn1.AspectName = "Name";
-			this.olvColumn1.CellPadding = null;
-			this.olvColumn1.Width = 250;
+			this.olvColumn1.Sortable = false;
+			this.olvColumn1.Text = "Data";
+			this.olvColumn1.Width = 150;
+			// 
+			// olvColumn2
+			// 
+			this.olvColumn2.AspectName = "Value";
+			this.olvColumn2.FillsFreeSpace = true;
+			this.olvColumn2.Groupable = false;
+			this.olvColumn2.Sortable = false;
+			this.olvColumn2.Text = "Value";
+			this.olvColumn2.Width = 200;
 			// 
 			// tableLayoutPanel1
 			// 
@@ -83,16 +103,19 @@
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 1;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(431, 262);
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(733, 262);
 			this.tableLayoutPanel1.TabIndex = 2;
 			// 
 			// RecordViewWindow
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(431, 262);
+			this.ClientSize = new System.Drawing.Size(733, 262);
+			this.CloseButton = false;
+			this.CloseButtonVisible = false;
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.HideOnClose = true;
 			this.Name = "RecordViewWindow";
 			this.Text = "Records";
 			((System.ComponentModel.ISupportInitialize)(this.treeListView1)).EndInit();
@@ -108,5 +131,6 @@
 		private BrightIdeasSoftware.TreeListView treeListView1;
 		private BrightIdeasSoftware.OLVColumn olvColumn1;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+		private BrightIdeasSoftware.OLVColumn olvColumn2;
 	}
 }

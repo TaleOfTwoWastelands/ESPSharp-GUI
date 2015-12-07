@@ -87,6 +87,7 @@
 			this.treeListView1.Cursor = System.Windows.Forms.Cursors.Default;
 			this.treeListView1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.treeListView1.FullRowSelect = true;
+			this.treeListView1.HideSelection = false;
 			this.treeListView1.IsSimpleDragSource = true;
 			this.treeListView1.IsSimpleDropSink = true;
 			this.treeListView1.Location = new System.Drawing.Point(3, 28);
@@ -97,6 +98,7 @@
 			this.treeListView1.Size = new System.Drawing.Size(528, 231);
 			this.treeListView1.TabIndex = 3;
 			this.treeListView1.UseCompatibleStateImageBehavior = false;
+			this.treeListView1.UseTranslucentSelection = true;
 			this.treeListView1.View = System.Windows.Forms.View.Details;
 			this.treeListView1.VirtualMode = true;
 			this.treeListView1.Expanding += new System.EventHandler<BrightIdeasSoftware.TreeBranchExpandingEventArgs>(this.tlvPluginList_Expanding);

@@ -72,6 +72,7 @@
 			this.tlvPluginList.AllColumns.Add(this.olvcFormID);
 			this.tlvPluginList.AllColumns.Add(this.olvcEditorID);
 			this.tlvPluginList.AllColumns.Add(this.olvcName);
+			this.tlvPluginList.CellEditUseWholeCell = false;
 			this.tlvPluginList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.olvcFormID,
             this.olvcEditorID,
@@ -80,15 +81,19 @@
 			this.tlvPluginList.Cursor = System.Windows.Forms.Cursors.Default;
 			this.tlvPluginList.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tlvPluginList.FullRowSelect = true;
+			this.tlvPluginList.HideSelection = false;
+			this.tlvPluginList.HighlightBackgroundColor = System.Drawing.Color.Empty;
+			this.tlvPluginList.HighlightForegroundColor = System.Drawing.Color.Empty;
 			this.tlvPluginList.IsSimpleDragSource = true;
 			this.tlvPluginList.Location = new System.Drawing.Point(3, 29);
 			this.tlvPluginList.Name = "tlvPluginList";
-			this.tlvPluginList.OwnerDraw = true;
 			this.tlvPluginList.ShowFilterMenuOnRightClick = false;
 			this.tlvPluginList.ShowGroups = false;
+			this.tlvPluginList.ShowItemToolTips = true;
 			this.tlvPluginList.Size = new System.Drawing.Size(496, 230);
 			this.tlvPluginList.TabIndex = 3;
 			this.tlvPluginList.UseCompatibleStateImageBehavior = false;
+			this.tlvPluginList.UseTranslucentSelection = true;
 			this.tlvPluginList.View = System.Windows.Forms.View.Details;
 			this.tlvPluginList.VirtualMode = true;
 			this.tlvPluginList.Expanding += new System.EventHandler<BrightIdeasSoftware.TreeBranchExpandingEventArgs>(this.tlvPluginList_Expanding);
@@ -97,7 +102,6 @@
 			// 
 			// olvcFormID
 			// 
-			this.olvcFormID.CellPadding = null;
 			this.olvcFormID.Groupable = false;
 			this.olvcFormID.Hideable = false;
 			this.olvcFormID.Text = "FormID";
@@ -105,7 +109,6 @@
 			// 
 			// olvcEditorID
 			// 
-			this.olvcEditorID.CellPadding = null;
 			this.olvcEditorID.Groupable = false;
 			this.olvcEditorID.Hideable = false;
 			this.olvcEditorID.Text = "EditorID";
@@ -113,7 +116,6 @@
 			// 
 			// olvcName
 			// 
-			this.olvcName.CellPadding = null;
 			this.olvcName.FillsFreeSpace = true;
 			this.olvcName.Groupable = false;
 			this.olvcName.Hideable = false;

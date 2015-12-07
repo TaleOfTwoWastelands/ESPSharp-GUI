@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.Reflection;
-using System.Text;
+using System.Drawing;
+using System.Linq;
 using System.Xml.Linq;
 using ESPSharp;
 using ESPSharp_GUI.Utilities;
@@ -19,19 +18,40 @@ namespace ESPSharp_GUI.DockableForms
 		{
 			InitializeComponent();
 
-			treeListView1.GetColumn(0).AspectGetter = delegate (object x)
+			
+			treeListView1.ChildrenGetter = delegate (object x)
 			{
-				var o = x as Record;
-				if (o != null)
-					return o.FormID;
-
-				var p = x as PropertyInfo;
-				if (p != null)
-					return p.Name;
-
+				var r = x as RecordViewProperties;
+				if (r?.Nodes.Count > 0)
+					return r.Nodes;
 				return new ArrayList();
 			};
+			treeListView1.GetColumn(0).AspectGetter = delegate (object x)
+			{
+				var r = x as RecordViewProperties;
+				if (r != null)
+					return r.Name;
+				return "No name found";
+			};
+			treeListView1.GetColumn(1).AspectGetter = delegate (object x)
+			{
+				var r = x as RecordViewProperties;
+				if (r != null && r.Nodes.Count == 0) return r.Value;
+				return "";
+			};
+			treeListView1.TreeColumnRenderer.UseTriangles = true;
+			treeListView1.TreeColumnRenderer.PIXELS_PER_LEVEL = 10;
+
+			var p = new Pen(Color.Black) {DashPattern = new[] {0.5F, 0.8F}, Width = 0.5F};
+
+			treeListView1.TreeColumnRenderer.LinePen = p;
 		}
+
+		private static void AddExpandGetter()
+		{
+			Instance.treeListView1.CanExpandGetter = x => (x is RecordViewProperties && ((RecordViewProperties)x).Nodes.Count > 0);
+		}
+
 
 		public static void AddRecordData(object o)
 		{
@@ -55,120 +75,59 @@ namespace ESPSharp_GUI.DockableForms
 				Instance.textBox1.Text = "";
 				return;
 			}
-
-			var xelem = new XElement("Filename");
-			record.WriteDataXML(xelem, master);
+			
+			var xelem = record.WriteXML(master);
 			Instance.textBox1.Text = xelem.ToString();
 
-			Instance.treeListView1.Roots = record.GetType().GetProperties();
-			Instance.treeListView1.RefreshObjects(record.GetType().GetProperties());
-
-			var temp = GetAllProperiesOfObject(record);
-		}
-
-		public static string GetAllProperiesOfObject(object thisObject)
-		{
-			string result = string.Empty;
-			try
-			{
-				// get all public static properties of MyClass type
-				var propertyInfos = thisObject.GetType().GetProperties(
-      BindingFlags.Public | BindingFlags.NonPublic // Get public and non-public
-    | BindingFlags.Static | BindingFlags.Instance  // Get instance + static
-    | BindingFlags.FlattenHierarchy); // Search up the hierarchy
-																											  // sort properties by name
-				Array.Sort(propertyInfos,
-						   (propertyInfo1, propertyInfo2) => propertyInfo1.Name.CompareTo(propertyInfo2.Name));
-
-				// write property names
-				StringBuilder sb = new StringBuilder();
-				sb.Append("<" + thisObject.GetType().Name + ">");
-				foreach (PropertyInfo propertyInfo in propertyInfos)
-				{
-					//sb.AppendFormat("Name: {0} | Value: {1} <br>", propertyInfo.Name, propertyInfo.va);
-				}
-				sb.Append("<hr />");
-				result = sb.ToString();
-			}
-			catch (Exception exception)
-			{
-				// to do log it
-			}
-
-			return result;
+			// This is what it takes to draw a new
+			AddExpandGetter();
+			Instance.treeListView1.Roots = GetXmlTree(xelem.Root, new RecordViewProperties()).Nodes;
+			Instance.treeListView1.ExpandAll();
+			var parent = Instance.treeListView1.GetParent(Instance.treeListView1.SelectedObject);
+			Instance.treeListView1.Columns[1].Text = master.FileName;
+			//Instance.treeListView1.CanExpandGetter = null;
 		}
 
 
-		private static List<RecordViewProperties> Add(object record)
+		private static RecordViewProperties GetXmlTree(XElement elem, RecordViewProperties node)
 		{
-			if (record == null) return null;
+			if (!elem.Elements().Any()) return null;
 
-			var propNames = new List<RecordViewProperties>();
+			foreach (var xElement in elem.Elements())
+			{
+				var name = "";
+				if (xElement.HasAttributes) name += xElement.FirstAttribute.Value + " - " + xElement.Name;
+				else name += xElement.Name;
 
-			var properties = record.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public);
+                var record = new RecordViewProperties(name, xElement.Value);
+				node.Nodes.Add(record);
+				GetXmlTree(xElement, record);
+			}
+			return node;
+		}
 
-			var types = record.GetType().GetNestedTypes();
-
-			//foreach (var property in properties)
-			//{
-			//	var prop = new RecordViewProperties(property.Name);
-			//	propNames.Add(prop);
-			//	if (property.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public).Length > 0)
-			//		prop.Subs = Add(property);
-			//}
-
-
-			return propNames;
-
-
-
-			//	foreach (var propertyInfo in record.GetType().GetProperties())
-			//	{
-			//		propertyInfo.
-			//	}
-
-
-
-
-			//	// Is item an array or container of objects?
-			//	// i.e. if it implements IEnumerable we can enumerate over
-			//	// the objects to see if they can be added to the tree.
-			//	IEnumerable enumerableObject = record as IEnumerable;
-			//	if (enumerableObject != null)
-			//	{
-			//		foreach (object itemInEnumerable in enumerableObject)
-			//		{
-			//			Add<TAttribute>(itemInEnumerable, treeNode, sPropertyForText);
-			//		}
-			//	}
-			//	// Get the item’s properties and see if
-			//	// there are any that have the attribute TreeNodeAttribute assigned to it
-			//	PropertyInfo[] propertyInfos = record.GetType().GetProperties();
-			//	foreach (PropertyInfo propertyInfo in propertyInfos)
-			//	{
-			//		// Check all attribs available on the property
-			//		object[] attribs = propertyInfo.GetCustomAttributes(false);
-			//		foreach (TAttribute treeNodeAttribute in attribs)
-			//		{
-			//			// Try and add the return value of the property to the tree,
-			//			// if the property returns null it will be caught at the
-			//			// beginning of this method.
-			//			Add<TAttribute>(propertyInfo.GetValue(record, null),
-			//				treeNode, sPropertyForText);
-			//		}
-			//	}
+		private void treeListView1_Expanding(object sender, BrightIdeasSoftware.TreeBranchExpandingEventArgs e)
+		{
+			
 		}
 	}
 
 	class RecordViewProperties
 	{
 		public string Name;
-		public List<RecordViewProperties> Subs;
+		public string Value;
+		public List<RecordViewProperties> Nodes;
 
-		public RecordViewProperties(string name)
+		public RecordViewProperties()
+		{
+			Nodes = new List<RecordViewProperties>();
+		}
+
+		public RecordViewProperties(string name, string value)
 		{
 			Name = name;
-			Subs = new List<RecordViewProperties>();
+			Value = value;
+			Nodes = new List<RecordViewProperties>();
 		}
 	}
 }
