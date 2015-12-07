@@ -159,6 +159,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\PluginData.cs" />
+    <Compile Include="Utilities\Settings.cs" />
     <Compile Include="Utilities\Util.cs" />
     <EmbeddedResource Include="Controls\ButtonTextBox.resx">
       <DependentUpon>ButtonTextBox.cs</DependentUpon>
