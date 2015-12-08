@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ESPSharp_GUI.DockableForms.BookmarkListWindow" Collapsed="true">
+    <Position X="2.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QEAFEAAAACBAAhAAAACAAAACAAAQIAICQAABAAAgACA=</HashCode>
+      <FileName>DockableForms\BookmarkListWindow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ESPSharp_GUI.LoadListWindow" Collapsed="true">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAACAQEIAAEACAACACAgAAABAIQAEIAAEAACA=</HashCode>
+      <FileName>DockableForms\LoadListWindow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ESPSharp_GUI.DockableForms.MessagesWindow" Collapsed="true">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAACAABBAAQQCgAAACAAAAABAAQAAAAAQAAAA=</HashCode>
+      <FileName>DockableForms\MessagesWindow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ESPSharp_GUI.DockableForms.PluginListWindow" Collapsed="true">
+    <Position X="0.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QEAFEAAAgCBAAhIAAACAAAACAAAAAAACQAAAAAAgACA=</HashCode>
+      <FileName>DockableForms\PluginListWindow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ESPSharp_GUI.DockableForms.PreferencesWindow" Collapsed="true">
+    <Position X="7" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAEAAAAADAIAAAAAiCQAAACECAgAgAAZAAIAYBAAwg=</HashCode>
+      <FileName>DockableForms\PreferencesWindow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ESPSharp_GUI.DockableForms.RecordViewWindow" Collapsed="true">
+    <Position X="5.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAEAAACgAgAAYAACAAAACAABAAAIAUAAAAAAAACA=</HashCode>
+      <FileName>DockableForms\RecordViewWindow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ESPSharp_GUI.DockableForms.RecordViewProperties" Collapsed="true">
+    <Position X="8.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>DockableForms\RecordViewWindow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ESPSharp_GUI.Extensions.PluginList" Collapsed="true">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQIAQIAIAAAAAAACAABEAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Extensions\PluginList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ESPSharp_GUI.Utilities.PluginData" Collapsed="true">
+    <Position X="5.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoAAAIAAEAA=</HashCode>
+      <FileName>Utilities\PluginData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ESPSharp_GUI.Utilities.Settings" Collapsed="true">
+    <Position X="7" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAEAAAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Utilities\Settings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ESPSharp_GUI.Utilities.Util" Collapsed="true">
+    <Position X="8.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAAAAACAAAAAAAAACAA=</HashCode>
+      <FileName>Utilities\Util.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ESPSharp_GUI.Controls.ButtonTextBox" Collapsed="true">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EkAAAAAAAAAACAAAQDAAAAACAIAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\ButtonTextBox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="ESPSharp_GUI.DockableForms.PrefDgvValues" Collapsed="true">
+    <Position X="5.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAAAAAAAAAAAIgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DockableForms\PreferencesWindow.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="ESPSharp_GUI.Utilities.EspDataType" Collapsed="true">
+    <Position X="5.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAEAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAEABAA=</HashCode>
+      <FileName>Utilities\PluginData.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

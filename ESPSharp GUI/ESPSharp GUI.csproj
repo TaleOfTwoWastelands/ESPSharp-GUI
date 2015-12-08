@@ -110,6 +110,12 @@
     <Compile Include="Controls\ButtonTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\PluginTreeView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\PluginTreeView.Designer.cs">
+      <DependentUpon>PluginTreeView.cs</DependentUpon>
+    </Compile>
     <Compile Include="DockableForms\MessagesWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,9 +146,6 @@
     <Compile Include="DockableForms\RecordViewWindow.Designer.cs">
       <DependentUpon>RecordViewWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Extensions\PluginList.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Instance.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
@@ -164,6 +167,9 @@
     <EmbeddedResource Include="Controls\ButtonTextBox.resx">
       <DependentUpon>ButtonTextBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PluginTreeView.resx">
+      <DependentUpon>PluginTreeView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockableForms\LoadListWindow.resx">
       <DependentUpon>LoadListWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -182,9 +188,6 @@
     <EmbeddedResource Include="DockableForms\RecordViewWindow.resx">
       <DependentUpon>RecordViewWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Extensions\PluginList.resx">
-      <DependentUpon>PluginList.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -198,6 +201,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

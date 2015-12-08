@@ -15,6 +15,7 @@ namespace ESPSharp_GUI
 		#region Members
 		private List<DockPane> _openPanes = new List<DockPane>();
 
+		public DockPanel DpMainPanel => dpMainPanel;
 
 		#endregion Members
 
@@ -36,6 +37,8 @@ namespace ESPSharp_GUI
 			// Set plugins list as active since it usually needs to be used first
 			LoadListWindow.Instance.Activate();
 		}
+
+		#region MenuOptions
 
 		private void tsmiPreferences_Click(object sender, System.EventArgs e)
 		{
@@ -90,5 +93,6 @@ namespace ESPSharp_GUI
 		{
 			LoadListWindow.Instance.Activate();
 		}
+		#endregion Menu Options
 	}
 }
