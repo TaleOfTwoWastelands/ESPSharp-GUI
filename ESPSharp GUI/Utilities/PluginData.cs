@@ -22,6 +22,10 @@ namespace ESPSharp_GUI.Utilities
 
 		public static void OpenPlugins(string[] files, IProgress<string> progress)
 		{
+            ElderScrollsPlugin.OnProgressUpdate += (message, level) =>
+            {
+                progress.Report(message);
+            };
 			Plugins = new List<ElderScrollsPlugin>();
 			ElderScrollsPlugin.Clear();
 
@@ -50,8 +54,7 @@ namespace ESPSharp_GUI.Utilities
 			}
 		}
 
-
-		public static EspDataType ObjectType(object obj)
+        public static EspDataType ObjectType(object obj)
 		{
 			if (obj is ElderScrollsPlugin)
 				return EspDataType.Plugin;
