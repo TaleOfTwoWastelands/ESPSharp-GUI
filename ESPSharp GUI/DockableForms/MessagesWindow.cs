@@ -1,69 +1,129 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Drawing;
+using ESPSharp_GUI.Interfaces;
+using ESPSharp_GUI.Utilities;
 using WeifenLuo.WinFormsUI.Docking;
 using static System.String;
 
 namespace ESPSharp_GUI.DockableForms
 {
-	public partial class MessagesWindow : DockContent
+	public partial class MessagesWindow : DockContent, IMessageReceiver, IDockableForm
 	{
 		public static MessagesWindow Instance => _instance ?? (_instance = new MessagesWindow());
 		private static MessagesWindow _instance;
-		
+
+		public DockState DefaultState { get; } = DockState.DockBottom;
+
 		private static readonly Stopwatch Stopwatch = new Stopwatch();
 
 		public MessagesWindow()
 		{
 			InitializeComponent();
+
+			Messenger.AddListener(this);
 			Stopwatch.Start();
 		}
 
-		public static void WriteMessage(string str)
+		#region Inherited from IMessageReceiver
+		public void AddMessage(string msg)
+		{
+			if (InvokeRequired)
+				Invoke(new Action<string>(WriteMessage), msg);
+			else
+				WriteMessage(msg);
+		}
+
+		public void AddInfo(string msg)
+		{
+			if (InvokeRequired)
+				Invoke(new Action<string>(WriteInfo), msg);
+			else
+				WriteInfo(msg);
+		}
+
+		public void AddDebug(string msg)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void AddWarning(string msg)
+		{
+
+			if (InvokeRequired)
+				Invoke(new Action<string>(WriteWarning), msg);
+			else
+				WriteWarning(msg);
+		}
+
+		public void AddError(string msg, Exception ex = null)
+		{
+			if (InvokeRequired)
+			{
+				if (ex != null)
+					Invoke(new Action<string>(WriteError), ex.Message);
+				Invoke(new Action<string>(WriteError), msg);
+			}
+			else
+				WriteError(msg);
+		}
+		#endregion Inherited from IMessageReceiver
+
+
+		#region Write to text box
+		private void WriteMessage(string msg)
+		{
+			rtbMessages.AppendText(FormatedTime());
+			rtbMessages.AppendText(msg);
+			rtbMessages.AppendText(Environment.NewLine);
+		}
+
+		private void WriteMessage(string msg, Color clr)
 		{
 			Instance.rtbMessages.AppendText(FormatedTime());
-			Instance.rtbMessages.AppendText(str);
-			Instance.rtbMessages.AppendText(Environment.NewLine);
+
+			var start = rtbMessages.TextLength;
+			rtbMessages.AppendText(msg);
+			var end = rtbMessages.TextLength;
+
+			rtbMessages.Select(start, end - start);
+			rtbMessages.SelectionColor = clr;
+			rtbMessages.SelectionLength = 0;
+
+			rtbMessages.AppendText(Environment.NewLine);
 		}
 
-		public static void WriteMessage(string str, Color clr)
+		private void WriteInfo(string msg)
 		{
-			Instance.rtbMessages.AppendText(FormatedTime());
-
-			var start = Instance.rtbMessages.TextLength;
-			Instance.rtbMessages.AppendText(str);
-			var end = Instance.rtbMessages.TextLength;
-
-			Instance.rtbMessages.Select(start, end - start);
-			Instance.rtbMessages.SelectionColor = clr;
-			Instance.rtbMessages.SelectionLength = 0;
-
-			Instance.rtbMessages.AppendText(Environment.NewLine);
+			Divider();
+			WriteMessage(msg);
+			Divider();
 		}
 
-		public static void WriteWarning(string str)
+		private void WriteWarning(string msg)
 		{
-			str = "Warning: " + str;
-			WriteMessage(str, Properties.Settings.Default.MessageWarningColor);
+			WriteMessage(msg, Properties.Settings.Default.MessageWarningColor);
 		}
 
-		public static void WriteError(string str)
+		private void WriteError(string msg)
 		{
-			str = "Error: " + str;
-			WriteMessage(str, Properties.Settings.Default.MessageErrorColor);
+			WriteMessage(msg, Properties.Settings.Default.MessageErrorColor);
 		}
+		#endregion Write to text box
 
-		public static void Divider()
+
+		#region Internal extra methods
+		private void Divider()
 		{
 			Instance.rtbMessages.AppendText(Environment.NewLine);
 			Instance.rtbMessages.AppendText("==================================================");
-			Instance.rtbMessages.AppendText(Environment.NewLine);
+			Instance.rtbMessages.AppendText(Environment.NewLine + Environment.NewLine);
 		}
 
-		private static string FormatedTime()
+		private string FormatedTime()
 		{
 			return Format("[{0:D2}:{1:D2}] ", (int)Stopwatch.Elapsed.TotalMinutes, (int)Stopwatch.Elapsed.TotalSeconds);
 		}
-
+		#endregion Internal extra methods
 	}
 }

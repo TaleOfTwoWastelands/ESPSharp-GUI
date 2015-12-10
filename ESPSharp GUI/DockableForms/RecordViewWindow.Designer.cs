@@ -54,10 +54,12 @@
 			// 
 			this.treeListView1.AllColumns.Add(this.olvColumn1);
 			this.treeListView1.AllColumns.Add(this.olvColumn2);
+			this.treeListView1.CellEditActivation = BrightIdeasSoftware.ObjectListView.CellEditActivateMode.SingleClick;
 			this.treeListView1.CellEditUseWholeCell = false;
 			this.treeListView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.olvColumn1,
             this.olvColumn2});
+			this.treeListView1.Cursor = System.Windows.Forms.Cursors.Default;
 			this.treeListView1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.treeListView1.HighlightBackgroundColor = System.Drawing.Color.Empty;
 			this.treeListView1.HighlightForegroundColor = System.Drawing.Color.Empty;
@@ -78,6 +80,7 @@
 			// olvColumn1
 			// 
 			this.olvColumn1.AspectName = "Name";
+			this.olvColumn1.IsEditable = false;
 			this.olvColumn1.Sortable = false;
 			this.olvColumn1.Text = "Data";
 			this.olvColumn1.Width = 150;
@@ -85,7 +88,7 @@
 			// olvColumn2
 			// 
 			this.olvColumn2.AspectName = "Value";
-			this.olvColumn2.FillsFreeSpace = true;
+			this.olvColumn2.CellEditUseWholeCell = true;
 			this.olvColumn2.Groupable = false;
 			this.olvColumn2.Sortable = false;
 			this.olvColumn2.Text = "Value";

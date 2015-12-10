@@ -4,15 +4,19 @@ using System.Drawing;
 using System.Linq;
 using System.Xml.Linq;
 using ESPSharp;
+using ESPSharp_GUI.Interfaces;
+using ESPSharp_GUI.Misc;
 using ESPSharp_GUI.Utilities;
 using WeifenLuo.WinFormsUI.Docking;
 
 namespace ESPSharp_GUI.DockableForms
 {
-	public partial class RecordViewWindow : DockContent
+	public partial class RecordViewWindow : DockContent, IDockableForm
 	{
 		public static RecordViewWindow Instance => _instance ?? (_instance = new RecordViewWindow());
 		private static RecordViewWindow _instance;
+
+		public DockState DefaultState { get; } = DockState.Document;
 
 		public RecordViewWindow()
 		{
@@ -109,25 +113,6 @@ namespace ESPSharp_GUI.DockableForms
 		private void treeListView1_Expanding(object sender, BrightIdeasSoftware.TreeBranchExpandingEventArgs e)
 		{
 			
-		}
-	}
-
-	class RecordViewProperties
-	{
-		public string Name;
-		public string Value;
-		public List<RecordViewProperties> Nodes;
-
-		public RecordViewProperties()
-		{
-			Nodes = new List<RecordViewProperties>();
-		}
-
-		public RecordViewProperties(string name, string value)
-		{
-			Name = name;
-			Value = value;
-			Nodes = new List<RecordViewProperties>();
 		}
 	}
 }

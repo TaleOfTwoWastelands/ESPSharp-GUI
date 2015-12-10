@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ESPSharp_GUI.Utilities;
 
 namespace ESPSharp_GUI
 {
@@ -16,7 +17,8 @@ namespace ESPSharp_GUI
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new MainWindow());
+
+			Application.Run(new EspSharpGui());
 		}
 	}
 }

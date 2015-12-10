@@ -33,31 +33,29 @@
 			// 
 			// rtbMessages
 			// 
-			this.rtbMessages.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.rtbMessages.BackColor = System.Drawing.SystemColors.Window;
 			this.rtbMessages.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.rtbMessages.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.rtbMessages.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.rtbMessages.HideSelection = false;
 			this.rtbMessages.Location = new System.Drawing.Point(0, 0);
-			this.rtbMessages.Margin = new System.Windows.Forms.Padding(4);
 			this.rtbMessages.Name = "rtbMessages";
 			this.rtbMessages.ReadOnly = true;
-			this.rtbMessages.Size = new System.Drawing.Size(619, 555);
+			this.rtbMessages.Size = new System.Drawing.Size(521, 277);
 			this.rtbMessages.TabIndex = 0;
 			this.rtbMessages.Text = "";
 			// 
 			// MessagesWindow
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(619, 555);
+			this.ClientSize = new System.Drawing.Size(521, 277);
 			this.CloseButton = false;
 			this.CloseButtonVisible = false;
 			this.Controls.Add(this.rtbMessages);
-			this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.HideOnClose = true;
-			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "MessagesWindow";
-			this.Text = "Messages";
+			this.Text = "Messenger";
 			this.ResumeLayout(false);
 
 		}

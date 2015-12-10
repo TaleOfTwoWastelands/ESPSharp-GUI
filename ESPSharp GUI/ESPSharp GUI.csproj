@@ -12,6 +12,8 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -110,6 +112,18 @@
     <Compile Include="Controls\ButtonTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\InputBoxText.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\InputBoxText.Designer.cs">
+      <DependentUpon>InputBoxText.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MainWindow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\PluginTreeView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -147,11 +161,12 @@
       <DependentUpon>RecordViewWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Instance.cs" />
-    <Compile Include="MainWindow.cs">
+    <Compile Include="Interfaces\IDockableForm.cs" />
+    <Compile Include="ESPSharpGui.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>MainWindow.cs</DependentUpon>
+    <Compile Include="ESPSharpGui.Designer.cs">
+      <DependentUpon>ESPSharpGui.cs</DependentUpon>
     </Compile>
     <Compile Include="DockableForms\LoadListWindow.cs">
       <SubType>Form</SubType>
@@ -159,13 +174,27 @@
     <Compile Include="DockableForms\LoadListWindow.Designer.cs">
       <DependentUpon>LoadListWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Misc\RecordViewProperties.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\Messenger.cs" />
     <Compile Include="Utilities\PluginData.cs" />
     <Compile Include="Utilities\Settings.cs" />
     <Compile Include="Utilities\Util.cs" />
+    <Compile Include="Windows\AboutBox1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\AboutBox1.Designer.cs">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Controls\ButtonTextBox.resx">
       <DependentUpon>ButtonTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\InputBoxText.resx">
+      <DependentUpon>InputBoxText.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\PluginTreeView.resx">
       <DependentUpon>PluginTreeView.cs</DependentUpon>
@@ -188,8 +217,8 @@
     <EmbeddedResource Include="DockableForms\RecordViewWindow.resx">
       <DependentUpon>RecordViewWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainWindow.resx">
-      <DependentUpon>MainWindow.cs</DependentUpon>
+    <EmbeddedResource Include="ESPSharpGui.resx">
+      <DependentUpon>ESPSharpGui.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -201,6 +230,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Windows\AboutBox1.resx">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using ESPSharp_GUI.Interfaces;
 using WeifenLuo.WinFormsUI.Docking;
 
 namespace ESPSharp_GUI.DockableForms
 {
-	public partial class PreferencesWindow : DockContent
+	public partial class PreferencesWindow : DockContent, IDockableForm
 	{
 		public static PreferencesWindow Instance => _instance ?? (_instance = new PreferencesWindow());
 		private static PreferencesWindow _instance;
+
+		public DockState DefaultState { get; } = DockState.Document;
 
 
 		public PreferencesWindow()
@@ -25,7 +28,7 @@ namespace ESPSharp_GUI.DockableForms
 			//		prefDgvValues.Directory);
 
 			//EspSharpSettings.Save();
-			//MessagesWindow.WriteMessage("Setting Saved!");
+			//MessagesWindow.AddMessage("Setting Saved!");
 		}
 
 

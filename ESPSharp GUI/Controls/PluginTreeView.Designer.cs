@@ -31,6 +31,7 @@
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PluginTreeView));
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+			this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.label1 = new System.Windows.Forms.Label();
 			this.btbFilter = new ESPSharp_GUI.Controls.ButtonTextBox();
 			this.tlvPluginList = new BrightIdeasSoftware.TreeListView();
@@ -46,6 +47,7 @@
 			this.tableLayoutPanel1.ColumnCount = 2;
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel1.ContextMenuStrip = this.contextMenuStrip;
 			this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
 			this.tableLayoutPanel1.Controls.Add(this.btbFilter, 1, 0);
 			this.tableLayoutPanel1.Controls.Add(this.tlvPluginList, 0, 1);
@@ -57,6 +59,11 @@
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel1.Size = new System.Drawing.Size(508, 353);
 			this.tableLayoutPanel1.TabIndex = 2;
+			// 
+			// contextMenuStrip
+			// 
+			this.contextMenuStrip.Name = "contextMenuStrip";
+			this.contextMenuStrip.Size = new System.Drawing.Size(153, 26);
 			// 
 			// label1
 			// 
@@ -97,16 +104,22 @@
 			this.tableLayoutPanel1.SetColumnSpan(this.tlvPluginList, 2);
 			this.tlvPluginList.Cursor = System.Windows.Forms.Cursors.Default;
 			this.tlvPluginList.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tlvPluginList.FullRowSelect = true;
+			this.tlvPluginList.HideSelection = false;
 			this.tlvPluginList.HighlightBackgroundColor = System.Drawing.Color.Empty;
 			this.tlvPluginList.HighlightForegroundColor = System.Drawing.Color.Empty;
 			this.tlvPluginList.IsSimpleDragSource = true;
 			this.tlvPluginList.Location = new System.Drawing.Point(3, 29);
 			this.tlvPluginList.Name = "tlvPluginList";
+			this.tlvPluginList.RevealAfterExpand = false;
+			this.tlvPluginList.ShowFilterMenuOnRightClick = false;
 			this.tlvPluginList.ShowGroups = false;
 			this.tlvPluginList.ShowItemToolTips = true;
 			this.tlvPluginList.Size = new System.Drawing.Size(502, 321);
 			this.tlvPluginList.TabIndex = 5;
+			this.tlvPluginList.UseAlternatingBackColors = true;
 			this.tlvPluginList.UseCompatibleStateImageBehavior = false;
+			this.tlvPluginList.UseHotControls = false;
 			this.tlvPluginList.UseHotItem = true;
 			this.tlvPluginList.UseTranslucentHotItem = true;
 			this.tlvPluginList.View = System.Windows.Forms.View.Details;
@@ -117,6 +130,7 @@
 			// olvcFormID
 			// 
 			this.olvcFormID.Groupable = false;
+			this.olvcFormID.Hideable = false;
 			this.olvcFormID.IsEditable = false;
 			this.olvcFormID.Text = "FormID";
 			this.olvcFormID.Width = 120;
@@ -124,14 +138,15 @@
 			// olvcEditorID
 			// 
 			this.olvcEditorID.Groupable = false;
+			this.olvcEditorID.Hideable = false;
 			this.olvcEditorID.IsEditable = false;
 			this.olvcEditorID.Text = "EditorID";
 			this.olvcEditorID.Width = 120;
 			// 
 			// olvcName
 			// 
-			this.olvcName.FillsFreeSpace = true;
 			this.olvcName.Groupable = false;
+			this.olvcName.Hideable = false;
 			this.olvcName.IsEditable = false;
 			this.olvcName.Text = "Name";
 			this.olvcName.Width = 150;
@@ -159,5 +174,6 @@
 		private BrightIdeasSoftware.OLVColumn olvcFormID;
 		private BrightIdeasSoftware.OLVColumn olvcEditorID;
 		private BrightIdeasSoftware.OLVColumn olvcName;
+		private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
 	}
 }
