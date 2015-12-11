@@ -75,10 +75,9 @@
 			this.label1.Location = new System.Drawing.Point(12, 9);
 			this.label1.MaximumSize = new System.Drawing.Size(260, 0);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(251, 26);
+			this.label1.Size = new System.Drawing.Size(33, 13);
 			this.label1.TabIndex = 3;
-			this.label1.Text = "Lots of really long text to make this roll to a new line.\r\n But it wasn\'t long en" +
-    "ough so I\'m adding more.\r\n";
+			this.label1.Text = "Label";
 			// 
 			// InputBoxText
 			// 
