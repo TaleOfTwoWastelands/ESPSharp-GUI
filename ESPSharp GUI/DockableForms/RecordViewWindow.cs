@@ -22,6 +22,7 @@ namespace ESPSharp_GUI.DockableForms
 		{
 			InitializeComponent();
 
+
 			
 			treeListView1.ChildrenGetter = delegate (object x)
 			{

@@ -34,8 +34,12 @@
 			this.olvColumn1 = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
 			this.olvColumn2 = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			((System.ComponentModel.ISupportInitialize)(this.treeListView1)).BeginInit();
 			this.tableLayoutPanel1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+			this.splitContainer1.Panel1.SuspendLayout();
+			this.splitContainer1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// textBox1
@@ -47,7 +51,7 @@
 			this.textBox1.Name = "textBox1";
 			this.textBox1.ReadOnly = true;
 			this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.textBox1.Size = new System.Drawing.Size(360, 256);
+			this.textBox1.Size = new System.Drawing.Size(334, 374);
 			this.textBox1.TabIndex = 0;
 			// 
 			// treeListView1
@@ -65,11 +69,11 @@
 			this.treeListView1.HighlightForegroundColor = System.Drawing.Color.Empty;
 			this.treeListView1.IsSimpleDragSource = true;
 			this.treeListView1.IsSimpleDropSink = true;
-			this.treeListView1.Location = new System.Drawing.Point(369, 3);
+			this.treeListView1.Location = new System.Drawing.Point(0, 0);
 			this.treeListView1.Name = "treeListView1";
 			this.treeListView1.ShowFilterMenuOnRightClick = false;
 			this.treeListView1.ShowGroups = false;
-			this.treeListView1.Size = new System.Drawing.Size(361, 256);
+			this.treeListView1.Size = new System.Drawing.Size(280, 374);
 			this.treeListView1.TabIndex = 1;
 			this.treeListView1.UseCompatibleStateImageBehavior = false;
 			this.treeListView1.UseTranslucentSelection = true;
@@ -97,23 +101,36 @@
 			// tableLayoutPanel1
 			// 
 			this.tableLayoutPanel1.ColumnCount = 2;
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
 			this.tableLayoutPanel1.Controls.Add(this.textBox1, 0, 0);
-			this.tableLayoutPanel1.Controls.Add(this.treeListView1, 1, 0);
+			this.tableLayoutPanel1.Controls.Add(this.splitContainer1, 1, 0);
 			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 1;
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(733, 262);
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(1022, 380);
 			this.tableLayoutPanel1.TabIndex = 2;
+			// 
+			// splitContainer1
+			// 
+			this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.splitContainer1.Location = new System.Drawing.Point(343, 3);
+			this.splitContainer1.Name = "splitContainer1";
+			// 
+			// splitContainer1.Panel1
+			// 
+			this.splitContainer1.Panel1.Controls.Add(this.treeListView1);
+			this.splitContainer1.Size = new System.Drawing.Size(676, 374);
+			this.splitContainer1.SplitterDistance = 280;
+			this.splitContainer1.TabIndex = 3;
 			// 
 			// RecordViewWindow
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(733, 262);
+			this.ClientSize = new System.Drawing.Size(1022, 380);
 			this.CloseButton = false;
 			this.CloseButtonVisible = false;
 			this.Controls.Add(this.tableLayoutPanel1);
@@ -124,6 +141,9 @@
 			((System.ComponentModel.ISupportInitialize)(this.treeListView1)).EndInit();
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
+			this.splitContainer1.Panel1.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+			this.splitContainer1.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -135,5 +155,6 @@
 		private BrightIdeasSoftware.OLVColumn olvColumn1;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 		private BrightIdeasSoftware.OLVColumn olvColumn2;
+		private System.Windows.Forms.SplitContainer splitContainer1;
 	}
 }

@@ -101,17 +101,9 @@ namespace ESPSharp_GUI.Utilities
 			}
 		}
 
-<<<<<<< Updated upstream
-        public static EspDataType ObjectType(object obj)
-=======
-
-
-
-
 
 
 		public static EspDataType ObjectType(object obj)
->>>>>>> Stashed changes
 		{
 			if (obj is ElderScrollsPlugin)
 				return EspDataType.Plugin;

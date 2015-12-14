@@ -39,15 +39,16 @@
 			this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.tsmiHelp = new System.Windows.Forms.ToolStripMenuItem();
 			this.dpMainPanel = new WeifenLuo.WinFormsUI.Docking.DockPanel();
+			this.vS2005Theme1 = new WeifenLuo.WinFormsUI.Docking.VS2005Theme();
 			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
 			this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
 			this.vS2003Theme1 = new WeifenLuo.WinFormsUI.Docking.VS2003Theme();
-			this.vS2005Theme1 = new WeifenLuo.WinFormsUI.Docking.VS2005Theme();
 			this.vS2012LightTheme1 = new WeifenLuo.WinFormsUI.Docking.VS2012LightTheme();
 			this.vS2013BlueTheme1 = new WeifenLuo.WinFormsUI.Docking.VS2013BlueTheme();
+			this.testButtonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.menuStrip.SuspendLayout();
 			this.statusStrip1.SuspendLayout();
@@ -77,7 +78,8 @@
 			this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiFile,
             this.viewToolStripMenuItem,
-            this.tsmiHelp});
+            this.tsmiHelp,
+            this.testButtonToolStripMenuItem});
 			this.menuStrip.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip.MdiWindowListItem = this.viewToolStripMenuItem;
 			this.menuStrip.Name = "menuStrip";
@@ -161,7 +163,6 @@
 			this.dpMainPanel.ShowDocumentIcon = true;
 			this.dpMainPanel.Size = new System.Drawing.Size(736, 482);
 			this.dpMainPanel.TabIndex = 0;
-			this.dpMainPanel.Theme = this.vS2005Theme1;
 			// 
 			// statusStrip1
 			// 
@@ -203,6 +204,13 @@
 			this.toolStripStatusLabel3.Size = new System.Drawing.Size(118, 17);
 			this.toolStripStatusLabel3.Text = "toolStripStatusLabel3";
 			// 
+			// testButtonToolStripMenuItem
+			// 
+			this.testButtonToolStripMenuItem.Name = "testButtonToolStripMenuItem";
+			this.testButtonToolStripMenuItem.Size = new System.Drawing.Size(80, 26);
+			this.testButtonToolStripMenuItem.Text = "Test Button";
+			this.testButtonToolStripMenuItem.Click += new System.EventHandler(this.testButtonToolStripMenuItem_Click);
+			// 
 			// MainWindow
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -242,5 +250,6 @@
 		private WeifenLuo.WinFormsUI.Docking.VS2005Theme vS2005Theme1;
 		private WeifenLuo.WinFormsUI.Docking.VS2012LightTheme vS2012LightTheme1;
 		private WeifenLuo.WinFormsUI.Docking.VS2013BlueTheme vS2013BlueTheme1;
+		private System.Windows.Forms.ToolStripMenuItem testButtonToolStripMenuItem;
 	}
 }
