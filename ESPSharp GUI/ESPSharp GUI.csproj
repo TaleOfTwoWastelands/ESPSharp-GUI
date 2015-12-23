@@ -112,6 +112,12 @@
     <Compile Include="Controls\ButtonTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="DockableForms\ScriptEditorWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockableForms\ScriptEditorWindow.Designer.cs">
+      <DependentUpon>ScriptEditorWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="PopupForms\InpubtBoxCheckList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,7 +172,6 @@
     <Compile Include="DockableForms\RecordViewWindow.Designer.cs">
       <DependentUpon>RecordViewWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Instance.cs" />
     <Compile Include="Interfaces\IDockableForm.cs" />
     <Compile Include="ESPSharpGui.cs">
       <SubType>Form</SubType>
@@ -191,6 +196,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\Messenger.cs" />
     <Compile Include="Utilities\PluginData.cs" />
+    <Compile Include="Utilities\ScriptHandler.cs" />
     <Compile Include="Utilities\Settings.cs" />
     <Compile Include="Utilities\Util.cs" />
     <Compile Include="Windows\AboutBox1.cs">
@@ -201,6 +207,9 @@
     </Compile>
     <EmbeddedResource Include="Controls\ButtonTextBox.resx">
       <DependentUpon>ButtonTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockableForms\ScriptEditorWindow.resx">
+      <DependentUpon>ScriptEditorWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PopupForms\InpubtBoxCheckList.resx">
       <DependentUpon>InpubtBoxCheckList.cs</DependentUpon>
@@ -264,7 +273,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\ESPSharp\ESPSharp\ESPSharp.csproj">
@@ -274,6 +285,10 @@
     <ProjectReference Include="..\ObjectListView\ObjectListView\ObjectListView2012.csproj">
       <Project>{18feda0c-d147-4286-b39a-01204808106a}</Project>
       <Name>ObjectListView2012</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ScriptEditor\ScriptEditor.csproj">
+      <Project>{650cb7cf-f5a1-48e8-ad85-de5b1713d9b4}</Project>
+      <Name>ScriptEditor</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

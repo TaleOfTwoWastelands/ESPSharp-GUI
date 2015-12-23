@@ -143,11 +143,11 @@ namespace ESPSharp_GUI.Controls
 		/// <param name="contents">The IEnumerable that contains objects for the tree to display.</param>
 		public void AddRootContents(IList contents)
 		{
-			foreach (var content in contents)
+			foreach (var content in contents.Cast<object>().Where(content => !RootItems.Contains(content)))
 				RootItems.Add(content);
-			//tlvPluginList.AddObjects(RootItems);
 			tlvPluginList.Roots = RootItems;
 		}
+
 		#endregion Public Methods
 
 

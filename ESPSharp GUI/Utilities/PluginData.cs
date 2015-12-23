@@ -63,20 +63,12 @@ namespace ESPSharp_GUI.Utilities
 		/// <param name="progress"></param>
 		private static void OpenPlugins(string[] files, IProgress<string> progress)
 		{
-            ElderScrollsPlugin.OnProgressUpdate += (message, level) =>
-            {
-                progress.Report(message);
-            };
+			ElderScrollsPlugin.OnProgressUpdate += ElderScrollsPluginOnProgressUpdate;
+
 			Plugins = new List<ElderScrollsPlugin>();
 			ElderScrollsPlugin.Clear();
 
 			ElderScrollsPlugin.pluginLocations.Add(new KeyValuePair<string, bool>(Settings.DataPath, false));
-
-			ElderScrollsPlugin.OnProgressUpdate += delegate(string msg, LogLevel level)
-			{
-				if (level == LogLevel.Plugin || level == LogLevel.Group)
-				Messenger.AddMessage(msg);
-			};
 
 			foreach (var file in files)
 			{
@@ -102,7 +94,6 @@ namespace ESPSharp_GUI.Utilities
 		}
 
 
-
 		public static EspDataType ObjectType(object obj)
 		{
 			if (obj is ElderScrollsPlugin)
@@ -120,5 +111,16 @@ namespace ESPSharp_GUI.Utilities
 		{
 			return ElderScrollsPlugin.LoadedPlugins.FirstOrDefault(p => p.RecordViews.Contains(recordView));
 		}
+
+
+
+
+		private static void ElderScrollsPluginOnProgressUpdate(string msg, LogLevel level)
+		{
+			if (level == LogLevel.Plugin || level == LogLevel.Group)
+				Messenger.AddMessage(msg);
+		}
+
+
 	}
 }

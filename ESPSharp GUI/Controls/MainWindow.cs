@@ -116,7 +116,7 @@ namespace ESPSharp_GUI.Controls
 
 		private void testButtonToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			;
+			var script = new ScriptHandler("Test.cs", null);
 		}
 	}
 }

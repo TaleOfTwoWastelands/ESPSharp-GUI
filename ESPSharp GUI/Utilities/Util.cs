@@ -8,7 +8,9 @@ namespace ESPSharp_GUI.Utilities
 {
 	public class Util
 	{
-		public static string CurrentPath = Application.ExecutablePath;
+		public static string CurrentPath = Application.StartupPath;
+
+		public static string UserScriptsPath = Path.Combine(CurrentPath, "ESPSharp User Scripts");
 
 		public static RegistryKey BethesdaRegKey
         {
