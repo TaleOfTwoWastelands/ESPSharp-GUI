@@ -14,7 +14,7 @@ namespace ESPSharp_GUI.Utilities
         {
             get
             {
-                return Directory.EnumerateFiles(DataPath)
+				return Directory.EnumerateFiles(DataPath)
                     .Where(f => Path.GetExtension(f).ToLower() == ".esm" || Path.GetExtension(f).ToLower() == ".esp")
                     .OrderBy(file => new FileInfo(file).LastWriteTime)
                     .ToList();
