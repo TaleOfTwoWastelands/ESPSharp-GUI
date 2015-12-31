@@ -61,11 +61,11 @@ namespace ESPSharp_GUI.DockableForms
 		public static void AddRecordData(object o)
 		{
 			Record record = null;
-			var master = new ElderScrollsPlugin();
+            ElderScrollsPlugin master;
 
-			var plugin = o as ElderScrollsPlugin;
-			if (plugin != null)
-				record = plugin.Header.Record;
+			master = o as ElderScrollsPlugin;
+			if (master != null)
+				record = master.Header.Record;
 
 			var view = o as RecordView;
 			if (view != null)
